@@ -17,7 +17,7 @@ const Header = () => {
         :
         <>
           <li className='font-semibold'><Link to='/login'>Login</Link></li>
-          <li className='font-semibold'><Link to='/Register'>Register</Link></li>
+          <li className='font-semibold'><Link to='/register'>Register</Link></li>
         </>
     } */}
 
@@ -35,7 +35,7 @@ const Header = () => {
                             {menuItems}
                         </ul>
                     </div>
-                        <Link to='/' className="btn btn-ghost normal-case text-xl">daisyUI</Link>
+                        <Link to='/' className="btn btn-ghost normal-case text-xl">My Home Made Food</Link>
                     <Link to='/' className="btn btn-ghost normal-case text-xl">
                         <img src='' alt="" />
 
