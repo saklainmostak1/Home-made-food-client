@@ -35,11 +35,12 @@ const Header = () => {
                             {menuItems}
                         </ul>
                     </div>
-                        <Link to='/' className="btn btn-ghost normal-case text-xl">My Home Made Food</Link>
+                    <div>  
+                        <Link to='/' className=" text-xl font-bold">Home Made  Food</Link>
                     <Link to='/' className="btn btn-ghost normal-case text-xl">
                         <img src='' alt="" />
-
                     </Link>
+                    </div>
                 </div>
                 
                 <div className="navbar-center hidden lg:flex">
