@@ -2,6 +2,7 @@ import React, { useContext } from 'react';
 import { Link } from 'react-router-dom';
 import { AuthContext } from '../AuthProvider/AuthProvider';
 import toast from 'react-hot-toast';
+import { FaUser } from 'react-icons/fa';
 
 const Header = () => {
     const {user, logOut} = useContext(AuthContext)
@@ -18,15 +19,13 @@ const Header = () => {
     const menuItems = <>
         <li className='font-semibold'><Link className='mr-5' to='/'>Home</Link></li>
         <li className='font-semibold'><Link className='mr-5' to='/services'>Services</Link></li>
+        <li className='font-semibold mr-5'><Link to='/orders'>Orders</Link></li>
         <li className='font-semibold'><Link className='mr-5' to='/blog'>Blog</Link></li>
         
          {
       user?.uid ?
-        <>
-         
-         <li className='font-semibold mr-5'><Link to='/orders'>Orders</Link></li>
-         
-        <button className="btn btn-outline btn-success" onClick={handleSignOut} >LogOut</button>
+        <>   
+         <li  onClick={handleSignOut} className='font-semibold '><  Link className='mr-5'>logOut</Link></li>
         </>
         :
         <>
@@ -39,7 +38,7 @@ const Header = () => {
     </>
     return (
         <div>
-            <div className="navbar h-20 mb-12 pt-12 bg-base-100">
+            <div className="navbar flex justify-between h-20 mb-12 pt-12 bg-base-100">
                 <div className="navbar-start">
                     <div className="dropdown">
                         <label tabIndex={0} className="btn btn-ghost lg:hidden">
@@ -74,7 +73,7 @@ const Header = () => {
                     </div>
                     </div>
                     :
-                    ''
+                    <FaUser></FaUser>
                }
                
             </div>
