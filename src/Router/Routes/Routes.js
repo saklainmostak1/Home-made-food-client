@@ -4,8 +4,10 @@ import Blog from "../../Pages/Blog/Blog";
 import Home from "../../Pages/Home/Home/Home";
 import Login from "../../Pages/Login/Login";
 import Register from "../../Pages/Register/Register";
+import Review from "../../Pages/Review/Review";
 import ServiceAllDescription from "../../Pages/ServiceAllDescription/ServiceAllDescription";
 import Services from "../../Pages/Services/Services";
+import ServicesAdd from "../../Pages/ServicesAdd/ServicesAdd";
 
 
  export const router = createBrowserRouter([
@@ -20,6 +22,15 @@ import Services from "../../Pages/Services/Services";
             {
                 path: '/services',
                 element: <Services></Services>
+            },
+            {
+                path: '/foodAdd',
+                element: <ServicesAdd></ServicesAdd>,
+                loader: () => fetch('http://localhost:5000/allFoods')
+            },
+            {
+                path: '/review',
+                element: <Review></Review>
             },
             {
                 path: '/blog',

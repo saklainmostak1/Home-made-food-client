@@ -19,7 +19,8 @@ const Header = () => {
     const menuItems = <>
         <li className='font-semibold'><Link className='mr-5' to='/'>Home</Link></li>
         <li className='font-semibold'><Link className='mr-5' to='/services'>Services</Link></li>
-        <li className='font-semibold mr-5'><Link to='/orders'>Orders</Link></li>
+        <li className='font-semibold mr-5'><Link to='/review'>My Review</Link></li>
+        <li className='font-semibold mr-5'><Link to='/foodAdd'>Add Services</Link></li>
         <li className='font-semibold'><Link className='mr-5' to='/blog'>Blog</Link></li>
         
          {
