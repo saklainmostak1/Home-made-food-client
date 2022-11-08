@@ -1,25 +1,39 @@
-import React from 'react';
+import React, { useContext } from 'react';
 import { Link } from 'react-router-dom';
+import { AuthContext } from '../AuthProvider/AuthProvider';
+import toast from 'react-hot-toast';
 
 const Header = () => {
+    const {user, logOut} = useContext(AuthContext)
+    const handleSignOut = () => {
+        return logOut()
+            .then(() => {
+                toast.success('Successfully LogOut!');
+            })
+            .catch(error => {
+                console.error(error)
+            })
+    }
+    
     const menuItems = <>
         <li className='font-semibold'><Link className='mr-5' to='/'>Home</Link></li>
         <li className='font-semibold'><Link className='mr-5' to='/services'>Services</Link></li>
         <li className='font-semibold'><Link className='mr-5' to='/blog'>Blog</Link></li>
-        <li className='font-semibold'><Link className='mr-5' to='/login'>Login</Link></li>
-        <li className='font-semibold'><Link className='mr-5' to='/register'>Register</Link></li>
-        {/* {
+        
+         {
       user?.uid ?
         <>
+         
          <li className='font-semibold mr-5'><Link to='/orders'>Orders</Link></li>
-        <button className="btn btn-outline btn-success" onClick={signOut} >LogOut</button>
+         
+        <button className="btn btn-outline btn-success" onClick={handleSignOut} >LogOut</button>
         </>
         :
         <>
-          <li className='font-semibold'><Link to='/login'>Login</Link></li>
-          <li className='font-semibold'><Link to='/register'>Register</Link></li>
+         <li className='font-semibold'><Link className='mr-5' to='/login'>Login</Link></li>
+        <li className='font-semibold'><Link className='mr-5' to='/register'>Register</Link></li>
         </>
-    } */}
+}
 
 
     </>
@@ -37,9 +51,7 @@ const Header = () => {
                     </div>
                     <div>  
                         <Link to='/' className=" text-xl font-bold">Home Made  Food</Link>
-                    <Link to='/' className="btn btn-ghost normal-case text-xl">
                         <img src='' alt="" />
-                    </Link>
                     </div>
                 </div>
                 
@@ -51,10 +63,20 @@ const Header = () => {
                 
                 <div>
                 </div>
-                
-                <div className="navbar-end">
-                    <button className="btn btn-outline btn-info">Appointment</button>
-                </div>
+               {
+                  user?.uid ?
+                  <div className="navbar-end grid">
+                  <div>
+                  <img className='rounded-full w-16 h-16 mr-5' src={user?.photoURL} alt="" />
+                  </div>
+                    <div>
+                    <p>{user?.displayName}</p>
+                    </div>
+                    </div>
+                    :
+                    ''
+               }
+               
             </div>
 
 

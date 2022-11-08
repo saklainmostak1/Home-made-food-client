@@ -32,6 +32,10 @@ import Services from "../../Pages/Services/Services";
                 path: '/register',
                 element: <Register></Register>
             },
+            {
+                path: '*',
+                element: <div>Not Found!!!</div>
+            },
         ]
     }
 
