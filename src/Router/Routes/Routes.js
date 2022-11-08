@@ -4,6 +4,7 @@ import Blog from "../../Pages/Blog/Blog";
 import Home from "../../Pages/Home/Home/Home";
 import Login from "../../Pages/Login/Login";
 import Register from "../../Pages/Register/Register";
+import ServiceAllDescription from "../../Pages/ServiceAllDescription/ServiceAllDescription";
 import Services from "../../Pages/Services/Services";
 
 
@@ -31,6 +32,11 @@ import Services from "../../Pages/Services/Services";
             {
                 path: '/register',
                 element: <Register></Register>
+            },
+            {
+                path: '/details/:id',
+                element: <ServiceAllDescription></ServiceAllDescription>,
+                loader: ({params}) => fetch(`http://localhost:5000/foods/${params.id}`)
             },
             {
                 path: '*',

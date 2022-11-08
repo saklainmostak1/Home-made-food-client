@@ -14,7 +14,7 @@ const Foods = () => {
             <div>
                 <div  className='grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6 '>
                     {
-                        foods && foods.slice(0, 3).map(food => <FoodDetails
+                        foods.map(food => <FoodDetails
                         key={food._id}
                         food={food}
                         >
@@ -22,7 +22,7 @@ const Foods = () => {
                     }  
                      
                 </div>
-                <Link to='services'>
+                <Link to='/services'>
                 <button className="btn btn-block mt-10 mb-10">Show All</button>
                 </Link>
             </div>
