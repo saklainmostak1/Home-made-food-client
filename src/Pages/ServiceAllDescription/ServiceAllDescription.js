@@ -1,6 +1,7 @@
 import React from 'react';
-import { Link, useLoaderData } from 'react-router-dom';
+import { useLoaderData } from 'react-router-dom';
 import { FaStar } from 'react-icons/fa';
+import ReviewFood from './ReviewFood';
 
 
 
@@ -24,9 +25,10 @@ const ServiceAllDescription = () => {
                        </div>
                    </div>
            <div className='mt-10 card-actions justify-center'>
-           <Link>
-           <button className="w-96 btn btn-info ">Button</button>
-               </Link>
+          <div>
+            <ReviewFood></ReviewFood>
+         
+          </div>
            </div>
           
        </div>

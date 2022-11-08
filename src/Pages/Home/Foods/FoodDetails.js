@@ -24,7 +24,7 @@ const FoodDetails = ({ food }) => {
                     </div>
                     <div className='mt-10 card-actions justify-center'>
                 <Link to={`/details/${_id}`}>
-                <button className="w-96  btn btn-info ">View Details</button>
+                <button className="w-64 btn btn-info ">View Details</button>
                     </Link>
                 </div>
                

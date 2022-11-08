@@ -7,6 +7,7 @@ const ServicesCard = ({food}) => {
     return (
         <div>
              <div className="card shadow-xl m-5">
+               
             <figure><img src={img} alt="Shoes" /></figure>
             <div className="card-body">
                 <h2 className=" text-2xl card-title">{title}</h2>
@@ -20,7 +21,7 @@ const ServicesCard = ({food}) => {
                         </div>
                 <div className='mt-10 card-actions justify-center'>
                 <Link to={`/details/${_id}`}>
-                <button className="w-96  btn btn-info ">View Details</button>
+                <button className="w-48 btn btn-info ">View Details</button>
                     </Link>
                 </div>
                
