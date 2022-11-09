@@ -8,6 +8,7 @@ import Review from "../../Pages/Review/Review";
 import ServiceAllDescription from "../../Pages/ServiceAllDescription/ServiceAllDescription";
 import Services from "../../Pages/Services/Services";
 import ServicesAdd from "../../Pages/ServicesAdd/ServicesAdd";
+import PrivateRoutes from "../PrivateRoutes/PrivateRoutes";
 
 
  export const router = createBrowserRouter([
@@ -25,12 +26,12 @@ import ServicesAdd from "../../Pages/ServicesAdd/ServicesAdd";
             },
             {
                 path: '/foodAdd',
-                element: <ServicesAdd></ServicesAdd>,
+                element: <PrivateRoutes><ServicesAdd></ServicesAdd></PrivateRoutes>,
                 loader: () => fetch('http://localhost:5000/allFoods')
             },
             {
                 path: '/review',
-                element: <Review></Review>
+                element: <PrivateRoutes><Review></Review></PrivateRoutes>
             },
             {
                 path: '/blog',
@@ -46,7 +47,7 @@ import ServicesAdd from "../../Pages/ServicesAdd/ServicesAdd";
             },
             {
                 path: '/details/:id',
-                element: <ServiceAllDescription></ServiceAllDescription>,
+                element: <PrivateRoutes><ServiceAllDescription></ServiceAllDescription></PrivateRoutes>,
                 loader: ({params}) => fetch(`http://localhost:5000/foods/${params.id}`)
             },
             {

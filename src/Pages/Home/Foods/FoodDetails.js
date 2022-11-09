@@ -17,9 +17,6 @@ const FoodDetails = ({ food }) => {
                     <div>
                         <div className='flex justify-between'>
                             <p>Price: {price}</p>
-                            <div className='flex'>
-                                <FaStar></FaStar><p className='ml-2'>{rating}</p>
-                            </div>
                         </div>
                     </div>
                     <div className='mt-10 card-actions justify-center'>
