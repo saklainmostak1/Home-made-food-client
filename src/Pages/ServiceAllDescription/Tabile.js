@@ -6,6 +6,7 @@ const Tabile = ({review}) => {
     const { name, rating, text, photo } = review
     console.log(photo);
     return (
+        <>
         <tr>
         <th>
           <label>
@@ -29,10 +30,8 @@ const Tabile = ({review}) => {
          {text}
         </td>
         <td>{rating}</td>
-        {/* <th>
-         {email}
-        </th> */}
       </tr> 
+        </>
     );
 };
 

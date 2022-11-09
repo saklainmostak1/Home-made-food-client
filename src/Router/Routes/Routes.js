@@ -8,6 +8,7 @@ import Review from "../../Pages/Review/Review";
 import ServiceAllDescription from "../../Pages/ServiceAllDescription/ServiceAllDescription";
 import Services from "../../Pages/Services/Services";
 import ServicesAdd from "../../Pages/ServicesAdd/ServicesAdd";
+import UpdateReview from "../../Pages/UpdateReview/UpdateReview";
 import PrivateRoutes from "../PrivateRoutes/PrivateRoutes";
 
 
@@ -32,6 +33,11 @@ import PrivateRoutes from "../PrivateRoutes/PrivateRoutes";
             {
                 path: '/review',
                 element: <PrivateRoutes><Review></Review></PrivateRoutes>
+            },
+            {
+                path: '/update/:id',
+                element: <UpdateReview></UpdateReview>,
+                loader: ({params}) => fetch(`http://localhost:5000/allReviews/${params.id}`)
             },
             {
                 path: '/blog',

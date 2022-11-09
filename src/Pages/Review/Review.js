@@ -32,34 +32,36 @@ const Review = () => {
     }
     return (
         <div>
-            <div className="overflow-x-auto w-full">
-  <table className="table w-full">
-    <thead>
-      <tr>
-        <th>
-        {/* <label>
-            <input type="checkbox" className="checkbox" />
-          </label> */}
-        </th>
-        <th>Name And Photo</th>
-        <th>Text</th>
-        <th>Rating</th>
-        <th>Food Name</th>
-        <th>Update</th>
-        <th></th>
-      </tr>
-    </thead>
-    <tbody>
-            {
-               reviewes.map(reviewe => <ReviewTable
-               key={reviewe._id}
-               reviewe={reviewe}
-               handleDelete={handleDelete}
-               ></ReviewTable> )
-            }
-    </tbody>
-  </table>
-</div>
+          
+              <div className="overflow-x-auto w-full">
+              <table className="table w-full">
+                <thead>
+                  <tr>
+                    <th>
+                    <label>
+                        <th>Delete Review</th>
+                      </label>
+                    </th>
+                    <th>Name And Photo</th>
+                    <th>Text</th>
+                    <th>Rating</th>
+                    <th>Food Name</th>
+                    <th>Edit Review</th>
+                  </tr>
+                </thead>
+                <tbody>
+                        {
+                           reviewes.map(reviewe => <ReviewTable
+                           key={reviewe._id}
+                           reviewe={reviewe}
+                           handleDelete={handleDelete}
+                           ></ReviewTable> )
+                        }
+                </tbody>
+              </table>
+            </div> 
+            
+           
         </div>
     );
 };
