@@ -1,10 +1,7 @@
 import React from 'react';
 
-const Tabile = ({review}) => {
-
-    // console.log(review);
-    const { name, rating, text, photo } = review
-    console.log(photo);
+const ReviewTable = ({reviewe}) => {
+    const { name, rating, text, photo } = reviewe
     return (
         <tr>
         <th>
@@ -29,11 +26,11 @@ const Tabile = ({review}) => {
          {text}
         </td>
         <td>{rating}</td>
-        {/* <th>
-         {email}
-        </th> */}
+        <th>
+         {}
+        </th>
       </tr> 
     );
 };
 
-export default Tabile;
+export default ReviewTable;

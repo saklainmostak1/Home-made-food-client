@@ -1,16 +1,21 @@
 import React, { useEffect, useState } from 'react';
-// import { useLoaderData } from 'react-router-dom';
-// import { AuthContext } from '../Shared/AuthProvider/AuthProvider';
+import { useLoaderData } from 'react-router-dom';
+import { AuthContext } from '../Shared/AuthProvider/AuthProvider';
 import Tabile from './Tabile';
 
 const DetailsCardAllReview = () => {
-    // const {user} = useLoaderData(AuthContext)
+    const {user} = useLoaderData(AuthContext)
     const [reviews, setReviews] = useState([])
+    console.log(reviews);
+    // console.log(user.email);
 
     useEffect(() =>{
-        fetch('http://localhost:5000/allReviews')
+        fetch(`http://localhost:5000/allReviews`)
         .then(Response => Response.json())
-        .then(data => setReviews(data))
+        .then(data =>{ 
+            setReviews(data)
+            
+        })
     }, [])
 
     return (
@@ -28,6 +33,7 @@ const DetailsCardAllReview = () => {
       </tr>
     </thead>
     <tbody>
+        <h2>Review: {reviews.length}</h2>
             {
                 reviews.map(review => <Tabile
                 key={review._id}
