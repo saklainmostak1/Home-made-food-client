@@ -24,10 +24,17 @@ const ServiceAllDescription = () => {
                            <p className='ml-2'>{rating}</p>
                        </div>
                    </div>
+                   <div>
+                   <h2 className="text-4xl text-center mb-5">Show All Review Of {title} </h2>
+
+                   </div>
            <div className='mt-10 card-actions justify-center'>
           <div>
-            <ReviewFood></ReviewFood>
-         
+          <h2 className="text-4xl text-center mb-5">Review For: {title} </h2>
+            <ReviewFood
+            key={foodDetails._id}
+            foodDetails={foodDetails}
+            ></ReviewFood>
           </div>
            </div>
           

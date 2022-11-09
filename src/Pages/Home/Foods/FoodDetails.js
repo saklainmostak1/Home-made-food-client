@@ -1,11 +1,11 @@
 import React from 'react';
-import { FaStar } from 'react-icons/fa';
+
 import { Link } from 'react-router-dom';
 
 
 const FoodDetails = ({ food }) => {
     console.log(food);
-    const { title, img, description, price, rating, _id } = food
+    const { title, img, description, price, _id } = food
     return (
 
         <div>
