@@ -5,6 +5,7 @@ import ReviewTable from './ReviewTable';
 const Review = () => {
     const {user} = useContext(AuthContext)
     const [reviewes, setReviewes] = useState([])
+    console.log(reviewes);
 
     useEffect(() =>{
         fetch(`http://localhost:5000/allReviews?email=${user?.email}`)
@@ -18,9 +19,9 @@ const Review = () => {
     <thead>
       <tr>
         <th>
-        <label>
+        {/* <label>
             <input type="checkbox" className="checkbox" />
-          </label>
+          </label> */}
         </th>
         <th>Name And Photo</th>
         <th>Text</th>

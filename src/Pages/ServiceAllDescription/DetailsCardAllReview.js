@@ -1,22 +1,23 @@
-import React, { useEffect, useState } from 'react';
-import { useLoaderData } from 'react-router-dom';
+import React, { useContext, useEffect, useState } from 'react';
 import { AuthContext } from '../Shared/AuthProvider/AuthProvider';
 import Tabile from './Tabile';
 
-const DetailsCardAllReview = () => {
-    const {user} = useLoaderData(AuthContext)
+const DetailsCardAllReview = ({foodDetails}) => {
+    console.log(foodDetails._id);
+    const {_id} = foodDetails
+    const {user} = useContext(AuthContext)
     const [reviews, setReviews] = useState([])
     console.log(reviews);
-    // console.log(user.email);
+    console.log(user.displayName);
 
     useEffect(() =>{
-        fetch(`http://localhost:5000/allReviews`)
+        fetch(`http://localhost:5000/foodReviews?service=${_id}`)
         .then(Response => Response.json())
         .then(data =>{ 
             setReviews(data)
             
         })
-    }, [])
+    }, [_id])
 
     return (
         <div>
@@ -33,7 +34,6 @@ const DetailsCardAllReview = () => {
       </tr>
     </thead>
     <tbody>
-        <h2>Review: {reviews.length}</h2>
             {
                 reviews.map(review => <Tabile
                 key={review._id}
