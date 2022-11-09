@@ -1,21 +1,9 @@
 import React from 'react';
 
-const ReviewTable = ({ reviewe }) => {
-    const { _id , name, rating, text, photo } = reviewe
+const ReviewTable = ({ reviewe, handleDelete }) => {
+    const { _id , name, rating, text, photo, foodname } = reviewe
     console.log(reviewe);
-    const handleDelete = id =>{
-        const proceed = window.confirm('Are You Sure To Delete Your Review')
-        if(proceed){
-            fetch(`http://localhost:5000/allReviews/${id}`, {
-                method: 'DELETE'
-            })
-            .then(Response => Response.json())
-            .then(data => {
-                console.log(data)
-            
-            })
-        }
-    }
+   
     return (
         <tr>
             <th>
@@ -43,7 +31,7 @@ const ReviewTable = ({ reviewe }) => {
             </td>
             <td>{rating}</td>
             <th>
-                { }
+                {foodname }
             </th>
         </tr>
 
