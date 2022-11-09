@@ -2,6 +2,7 @@ import React from 'react';
 import { useLoaderData } from 'react-router-dom';
 import { FaStar } from 'react-icons/fa';
 import ReviewFood from './ReviewFood';
+import DetailsCardAllReview from './DetailsCardAllReview';
 
 
 
@@ -26,7 +27,7 @@ const ServiceAllDescription = () => {
                    </div>
                    <div>
                    <h2 className="text-4xl text-center mb-5">Show All Review Of {title} </h2>
-
+                    <DetailsCardAllReview></DetailsCardAllReview>
                    </div>
            <div className='mt-10 card-actions justify-center'>
           <div>

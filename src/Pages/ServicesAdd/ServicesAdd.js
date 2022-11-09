@@ -3,12 +3,10 @@ import { useLoaderData } from 'react-router-dom';
 import toast from 'react-hot-toast';
 
 const ServicesAdd = () => {
-    const foods = useLoaderData()
-    const {_id} = foods
+    const {_id} = useLoaderData()
     const handleAddServices = event => {
         event.preventDefault()
         const form = event.target
-        const service = _id
         const title = form.name.value
         const img = form.photoURL.value
         const price = form.price.value
@@ -17,7 +15,7 @@ const ServicesAdd = () => {
         console.log(title, img, price, rating, description);
 
         const addFood = {
-            service,
+            service: _id,
             title,
             img,
             price,
@@ -36,6 +34,7 @@ const ServicesAdd = () => {
                 console.log( data);
                 if(data.acknowledged){
                     toast.success('Successfully Service Add!');
+                    form.reset('')
                 }
             })
             .catch((error) => {
