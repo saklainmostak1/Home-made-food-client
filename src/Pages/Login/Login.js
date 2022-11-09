@@ -4,6 +4,7 @@ import { Link, useLocation, useNavigate } from 'react-router-dom';
 import { AuthContext } from '../Shared/AuthProvider/AuthProvider';
 import toast from 'react-hot-toast';
 import { FaGoogle } from 'react-icons/fa';
+import useTitle from '../../hooks/useTitle';
 
 
 const Login = () => {
@@ -11,6 +12,7 @@ const Login = () => {
     const googleProvider = new GoogleAuthProvider()
     const navigate = useNavigate()
     const location = useLocation()
+    useTitle('Login')
     const from = location.state?.from?.pathname || '/'
 
     const handleLogin = event =>{
@@ -37,6 +39,7 @@ const Login = () => {
             .then(result => {
                 const user = result.user
                 toast.success('Successfully Login!');
+                navigate(from, {replace: true})
                 console.log(user)
                 
             })

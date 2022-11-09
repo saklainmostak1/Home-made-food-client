@@ -7,7 +7,8 @@ const ReviewTable = ({ reviewe, handleDelete }) => {
     console.log(reviewe);
    
     return (
-           <tr>
+          
+             <tr>
            <th>
                <label>
                    <button onClick={() => handleDelete(_id) } className="btn btn-circle btn-outline">

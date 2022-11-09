@@ -4,11 +4,13 @@ import { AuthContext } from '../Shared/AuthProvider/AuthProvider';
 import toast from 'react-hot-toast';
 import { FaGoogle } from 'react-icons/fa';
 import {  GoogleAuthProvider } from 'firebase/auth';
+import useTitle from '../../hooks/useTitle';
 
 
 
 const Register = () => {
     const {createUser, upadateUserProfile, googleSingIn} = useContext(AuthContext)
+    useTitle('Register')
     const googleProvider = new GoogleAuthProvider()
     const handleSubmit = event =>{
         event.preventDefault()
@@ -95,7 +97,7 @@ const Register = () => {
           </label>
       <button className="btn btn-primary">Register</button>
         </div>
-        <button onClick={handleGoogleLogIn} className="btn btn-outline btn-info"><FaGoogle></FaGoogle> google Login</button>
+        <button onClick={handleGoogleLogIn} className="btn btn-outline btn-info"><FaGoogle></FaGoogle> google Register</button>
       </form>
     </div>
   </div>

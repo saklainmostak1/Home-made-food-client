@@ -3,10 +3,12 @@ import { useLoaderData } from 'react-router-dom';
 import { FaStar } from 'react-icons/fa';
 import ReviewFood from './ReviewFood';
 import DetailsCardAllReview from './DetailsCardAllReview';
+import useTitle from '../../hooks/useTitle';
 
 
 
 const ServiceAllDescription = () => {
+    useTitle('Details')
     const foodDetails = useLoaderData()
     const {title, img, description, price, rating } = foodDetails
     console.log(foodDetails);
@@ -34,7 +36,7 @@ const ServiceAllDescription = () => {
                    </div>
            <div className='mt-10 card-actions justify-center'>
           <div>
-          <h2 className="text-4xl text-center mb-5">Review For: {title} </h2>
+          <h2 className="text-4xl text-center mb-5">Add Review For {title} </h2>
             <ReviewFood
             key={foodDetails._id}
             foodDetails={foodDetails}

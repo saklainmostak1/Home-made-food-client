@@ -1,8 +1,10 @@
 import React from 'react';
 import { useLoaderData } from 'react-router-dom';
 import toast from 'react-hot-toast';
+import useTitle from '../../hooks/useTitle';
 
 const ServicesAdd = () => {
+    useTitle('Add Services')
     const {_id} = useLoaderData()
     const handleAddServices = event => {
         event.preventDefault()
