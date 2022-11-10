@@ -4,6 +4,8 @@ import { FaStar } from 'react-icons/fa';
 import ReviewFood from './ReviewFood';
 import DetailsCardAllReview from './DetailsCardAllReview';
 import useTitle from '../../hooks/useTitle';
+import { PhotoProvider, PhotoView } from 'react-photo-view';
+import 'react-photo-view/dist/react-photo-view.css';
 
 
 
@@ -16,7 +18,13 @@ const ServiceAllDescription = () => {
     return (
         <div>
         <div className="card shadow-xl m-5">
-       <figure><img src={img} alt="Shoes" /></figure>
+       <figure>
+       <PhotoProvider>
+      <PhotoView src={img}>
+        <img src={img} alt="" />
+      </PhotoView>
+    </PhotoProvider>
+        </figure>
        <div className="card-body">
            <h2 className=" text-2xl card-title">{title}</h2>
            <p className='  font-semibold text-left'><span className='font-bold text-xl'>Description:</span> {description}</p>

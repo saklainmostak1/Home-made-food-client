@@ -18,8 +18,6 @@ const Header = () => {
 
     const menuItems = <>
         <li className='font-semibold'><Link className='mr-5' to='/'>Home</Link></li>
-        <li className='font-semibold'><Link className='mr-5' to='/services'>Services</Link></li>
-
         <li className='font-semibold'><Link className='mr-5' to='/blog'>Blog</Link></li>
 
         {
