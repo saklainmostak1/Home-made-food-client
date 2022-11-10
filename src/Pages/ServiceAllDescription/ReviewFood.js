@@ -48,7 +48,9 @@ const ReviewFood = ({ foodDetails }) => {
 
     return (
         <div>
-            <form onSubmit={handleReview}>
+            {
+                user?.email ? 
+                <form onSubmit={handleReview}>
                 <h2 className="text-4xl">{ }</h2>
                 {/* <h4 className="text-3xl">Price: $ {}</h4> */}
                 <div className='grid grid-cols-1 lg:grid-cols-2 gap-4'>
@@ -63,6 +65,11 @@ const ReviewFood = ({ foodDetails }) => {
                 <textarea name='message' className="textarea textarea-info w-full mt-5 h-28 mb-5" placeholder="Send Your Message" required></textarea>
                 <input className='btn btn-outline btn-info mb-5' type="submit" value="Send Review" />
             </form>
+                
+                :
+                <h2 className='text-3xl m-10 text-red-500'>Please Log in to add a review !!!!</h2>
+               
+            }
         </div>
     );
 };

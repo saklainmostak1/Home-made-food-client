@@ -49,7 +49,7 @@ const Header = () => {
                         </ul>
                     </div>
                     <div>
-                        <Link to='/' className=" text-xl font-bold">My Home Made  Food</Link>
+                        <Link to='/' className=" text-xl font-bold">Home Made Food Service</Link>
                         <img src='' alt="" />
                     </div>
                 </div>

@@ -4,6 +4,7 @@ import 'react-photo-view/dist/react-photo-view.css';
 import { Link } from 'react-router-dom';
 
 
+
 const FoodDetails = ({ food }) => {
     console.log(food);
     const { title, img, description, price, _id } = food
@@ -24,13 +25,15 @@ const FoodDetails = ({ food }) => {
                     <p className='  font-semibold text-left'><span className='font-bold text-xl'>Description:</span> {description.slice(0, 100) + '...'}</p>
                     <div>
                         <div className='flex justify-between'>
-                            <p>Price: {price}</p>
+                            <p>Price: {price} Tk</p>
                         </div>
                     </div>
                     <div className='mt-10 card-actions justify-center'>
-                        <Link to={`/details/${_id}`}>
+                        
+                            <Link to={`/details/${_id}`}>
                             <button className="w-64 btn btn-info ">View Details</button>
                         </Link>
+                         
                     </div>
 
                 </div>

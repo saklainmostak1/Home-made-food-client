@@ -24,9 +24,26 @@ const Login = () => {
       .then(result => {
         const user = result.user
         console.log(user);
-        form.reset('')
-        navigate(from, { replace: true })
-        toast.success('Successfully Login!');
+
+        const currentUser = {
+          email: user.email
+        }
+        console.log(currentUser);
+        fetch('http://localhost:5000/jwt', {
+          method: 'POST',
+          headers: {
+            'content-type': 'application/json'
+          },
+          body: JSON.stringify(currentUser)
+        })
+        .then(Response => Response.json())
+        .then(data => {
+          localStorage.setItem('token', data.token)
+          console.log(data)
+          form.reset('')
+          navigate(from, { replace: true })
+          toast.success('Successfully Login!');
+        })
       })
       .catch(error => console.error(error))
   }

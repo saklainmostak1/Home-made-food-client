@@ -8,7 +8,7 @@ const DetailsCardAllReview = ({ foodDetails }) => {
   const { user } = useContext(AuthContext)
   const [reviews, setReviews] = useState([])
   console.log(reviews);
-  console.log(user.displayName);
+  console.log(user);
 
   useEffect(() => {
     fetch(`http://localhost:5000/foodReviews?service=${_id}`, {

@@ -53,7 +53,7 @@ import PrivateRoutes from "../PrivateRoutes/PrivateRoutes";
             },
             {
                 path: '/details/:id',
-                element: <PrivateRoutes><ServiceAllDescription></ServiceAllDescription></PrivateRoutes>,
+                element: <ServiceAllDescription></ServiceAllDescription>,
                 loader: ({params}) => fetch(`http://localhost:5000/foods/${params.id}`)
             },
             {
