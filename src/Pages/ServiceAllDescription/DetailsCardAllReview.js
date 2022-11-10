@@ -11,7 +11,7 @@ const DetailsCardAllReview = ({ foodDetails }) => {
   console.log(user);
 
   useEffect(() => {
-    fetch(`http://localhost:5000/foodReviews?service=${_id}`, {
+    fetch(`https://home-made-food-server-saklainmostak1.vercel.app/foodReviews?service=${_id}`, {
       headers: {
         authorization: `Bearer ${localStorage.getItem('food-token')}`
       }

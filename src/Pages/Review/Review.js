@@ -11,7 +11,7 @@ const Review = () => {
     console.log(reviewes);
 
     useEffect(() =>{
-        fetch(`http://localhost:5000/allReviews?email=${user?.email}`)
+        fetch(`https://home-made-food-server-saklainmostak1.vercel.app/allReviews?email=${user?.email}`)
         .then(Response => Response.json())
         .then(data => setReviewes(data))
        
@@ -19,7 +19,7 @@ const Review = () => {
     const handleDelete = id =>{
         const proceed = window.confirm('Are You Sure To Delete Your Review')
         if(proceed){
-            fetch(`http://localhost:5000/allReviews/${id}`, {
+            fetch(`https://home-made-food-server-saklainmostak1.vercel.app/allReviews/${id}`, {
                 method: 'DELETE'
             })
             .then(Response => Response.json())

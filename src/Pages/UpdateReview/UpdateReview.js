@@ -13,7 +13,7 @@ const UpdateReview = () => {
     const handleEditeReview = event => {
         event.preventDefault()
         // console.log(editReviews);
-        fetch(`http://localhost:5000/allReviews/${updateReview._id}`, {
+        fetch(`https://home-made-food-server-saklainmostak1.vercel.app/allReviews/${updateReview._id}`, {
             method: 'PUT',
             headers: {
                 'content-type': 'application/json'

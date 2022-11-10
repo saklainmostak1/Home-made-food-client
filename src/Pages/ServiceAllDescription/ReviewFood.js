@@ -25,7 +25,7 @@ const ReviewFood = ({ foodDetails }) => {
             foodname,
             text,
         }
-        fetch('http://localhost:5000/reviews', {
+        fetch('https://home-made-food-server-saklainmostak1.vercel.app/reviews', {
             method: 'POST',
             headers: {
                 'content-Type': 'application/json',

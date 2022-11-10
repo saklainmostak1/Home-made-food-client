@@ -14,7 +14,7 @@ const Services = () => {
     useTitle('Services')
     const [foods, setFoods] = useState([])
     useEffect(() =>{
-        fetch('http://localhost:5000/allFoods')
+        fetch('https://home-made-food-server-saklainmostak1.vercel.app/allFoods')
         .then(Response => Response.json())
         .then(data => setFoods(data))
     }, [])

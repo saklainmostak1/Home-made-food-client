@@ -24,7 +24,7 @@ const ServicesAdd = () => {
             description,
             rating,
         }
-        fetch('http://localhost:5000/foodAdd', {
+        fetch('https://home-made-food-server-saklainmostak1.vercel.app/foodAdd', {
             method: 'POST', 
             headers: {
                 'content-Type': 'application/json',

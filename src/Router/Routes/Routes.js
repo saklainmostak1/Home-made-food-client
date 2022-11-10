@@ -28,7 +28,7 @@ import PrivateRoutes from "../PrivateRoutes/PrivateRoutes";
             {
                 path: '/foodAdd',
                 element: <PrivateRoutes><ServicesAdd></ServicesAdd></PrivateRoutes>,
-                loader: () => fetch('http://localhost:5000/allFoods')
+                loader: () => fetch('https://home-made-food-server-saklainmostak1.vercel.app/allFoods')
             },
             {
                 path: '/review',
@@ -37,7 +37,7 @@ import PrivateRoutes from "../PrivateRoutes/PrivateRoutes";
             {
                 path: '/update/:id',
                 element: <UpdateReview></UpdateReview>,
-                loader: ({params}) => fetch(`http://localhost:5000/allReviews/${params.id}`)
+                loader: ({params}) => fetch(`https://home-made-food-server-saklainmostak1.vercel.app/allReviews/${params.id}`)
             },
             {
                 path: '/blog',
@@ -54,7 +54,7 @@ import PrivateRoutes from "../PrivateRoutes/PrivateRoutes";
             {
                 path: '/details/:id',
                 element: <ServiceAllDescription></ServiceAllDescription>,
-                loader: ({params}) => fetch(`http://localhost:5000/foods/${params.id}`)
+                loader: ({params}) => fetch(`https://home-made-food-server-saklainmostak1.vercel.app/foods/${params.id}`)
             },
             {
                 path: '*',
