@@ -1,24 +1,19 @@
-import React, { useContext, useState } from 'react';
+import React from 'react';
 import { Link } from 'react-router-dom';
 import { PhotoProvider, PhotoView } from 'react-photo-view';
 import 'react-photo-view/dist/react-photo-view.css';
-import { AuthContext } from '../Shared/AuthProvider/AuthProvider';
 
 
 
 const ServicesCard = ({food}) => {
-    const [text, setText] = useState()
-    const handleClick = () =>{
-        setText( 'Plesase login to view details')
-    }
-    const {user} = useContext(AuthContext) 
+
+    
     const {title, img, description, price, _id } = food
     return (
         <div>
-             <div className="card shadow-xl m-5">
-               
-            <figure>
-                
+            
+                <div className="card shadow-xl m-5">   
+            <figure>   
             <PhotoProvider >
                 <PhotoView  src={img}>
                     <img  src={img} alt="" />
@@ -33,23 +28,16 @@ const ServicesCard = ({food}) => {
                             
                         </div>
                 <div className='mt-10 card-actions justify-center'>
-                {
-                            user?.uid ?
+               
                             <Link to={`/details/${_id}`}>
                             <button className="w-64 btn btn-info ">View Details</button>
-                        </Link>
-                            : 
-                            <div className='grid'>
-                                <h2 className='text-2xl mb-5'>{text}</h2>
-                                <button className="w-64 btn btn-info " onClick={handleClick}>View Details</button>
-                            </div>
-                            
-                        }
+                        </Link>  
                 </div>
                
             </div>
            
         </div>
+             
         </div>
     );
 };

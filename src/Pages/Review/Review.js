@@ -6,19 +6,16 @@ import useTitle from '../../hooks/useTitle';
 
 const Review = () => {
   useTitle('My Review')
-    const {user, logOut} = useContext(AuthContext)
+    const {user} = useContext(AuthContext)
     const [reviewes, setReviewes] = useState([])
     console.log(reviewes);
 
     useEffect(() =>{
-        fetch(`http://localhost:5000/allReviews?email=${user?.email}`, {
-          headers: {
-            authorization: `Bearer ${localStorage.getItem('token')}`
-          }
-        })
+        fetch(`http://localhost:5000/allReviews?email=${user?.email}`)
         .then(Response => Response.json())
-        .then(data =>  setReviewes(data))
-    },[user?.email, logOut])
+        .then(data => setReviewes(data))
+       
+    },[user?.email])
     const handleDelete = id =>{
         const proceed = window.confirm('Are You Sure To Delete Your Review')
         if(proceed){

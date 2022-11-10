@@ -1,4 +1,4 @@
-import React, { useContext } from 'react';
+import React, { useContext, useEffect, useState } from 'react';
 import { Link, useLocation, useNavigate } from 'react-router-dom';
 import { AuthContext } from '../Shared/AuthProvider/AuthProvider';
 import toast from 'react-hot-toast';
@@ -9,7 +9,13 @@ import { GoogleAuthProvider } from 'firebase/auth';
 
 const Login = () => {
   const { logIn, providerLogin } = useContext(AuthContext)
-
+  const [loading, setLoading] = useState(false)
+  useEffect( () =>{
+    setLoading(true)
+    setTimeout(() =>{
+      setLoading(false)
+    },1000)
+  },[])
   const navigate = useNavigate()
   const location = useLocation()
   useTitle('Login')
@@ -24,26 +30,9 @@ const Login = () => {
       .then(result => {
         const user = result.user
         console.log(user);
-
-        const currentUser = {
-          email: user.email
-        }
-        console.log(currentUser);
-        fetch('http://localhost:5000/jwt', {
-          method: 'POST',
-          headers: {
-            'content-type': 'application/json'
-          },
-          body: JSON.stringify(currentUser)
-        })
-        .then(Response => Response.json())
-        .then(data => {
-          localStorage.setItem('token', data.token)
-          console.log(data)
-          form.reset('')
-          navigate(from, { replace: true })
-          toast.success('Successfully Login!');
-        })
+        form.reset('')
+        navigate(from, { replace: true })
+        toast.success('Successfully Login!');
       })
       .catch(error => console.error(error))
   }
@@ -60,7 +49,12 @@ const Login = () => {
 
   return (
     <div>
-      <div className="hero min-h-screen bg-base-200">
+      {
+        loading ? 
+        <button className="btn loading m-10">loading</button>
+
+        :
+        <div className="hero min-h-screen bg-base-200">
         <div className="hero-content flex-col ">
           <div className="text-center lg:text-left">
             <h1 className="text-5xl font-bold">Login now!</h1>
@@ -92,7 +86,9 @@ const Login = () => {
           </div>
         </div>
       </div>
-    </div>
+      }
+      </div>
+     
   );
 };
 
