@@ -6,7 +6,7 @@ const Blog = () => {
     return (
         <div className='mt-24'>
             <div>
-                <div className="card shadow-lg mb-10 m-auto w-96 bg-primary text-primary-content">
+                <div className="card mb-10 bg-primary text-primary-content">
                     <div className="card-body">
                         <h2 className="card-title">Difference between SQL and NoSQL??</h2>
                         <p><strong>The five critical differences between SQL vs NoSQL are:</strong>
@@ -23,7 +23,7 @@ const Blog = () => {
                 </div>
             </div>
             <div>
-                <div className="card w-96 mb-10 m-auto bg-primary text-primary-content">
+                <div className="card mb-10 m-auto bg-primary text-primary-content">
                     <div className="card-body">
                         <h2 className="card-title">What is JWT, and how does it work?</h2>
                         <p><strong>JWT:</strong>
@@ -38,7 +38,7 @@ const Blog = () => {
                 </div>
             </div>
             <div>
-                <div className="card w-96 mb-10 m-auto bg-primary text-primary-content">
+                <div className="card mb-10 m-auto bg-primary text-primary-content">
                     <div className="card-body">
                         <h2 className="card-title">What is the difference between javascript and NodeJS?</h2>
                         <p><strong>Difference between javascript and NodeJS:</strong> <br />
@@ -53,7 +53,7 @@ const Blog = () => {
                 </div>
             </div>
             <div>
-                <div className="card w-96 mb-10 m-auto bg-primary text-primary-content">
+                <div className="card mb-10 bg-primary text-primary-content">
                     <div className="card-body">
                         <h2 className="card-title">How does NodeJS handle multiple requests at the same time?</h2>
                         <p><strong>NodeJS handle multiple requests:</strong> <br />

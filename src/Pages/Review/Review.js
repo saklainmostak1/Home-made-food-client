@@ -6,15 +6,28 @@ import useTitle from '../../hooks/useTitle';
 
 const Review = () => {
   useTitle('My Review')
-    const {user} = useContext(AuthContext)
+    const {user, logOut} = useContext(AuthContext)
     const [reviewes, setReviewes] = useState([])
     console.log(reviewes);
 
     useEffect(() =>{
-        fetch(`http://localhost:5000/allReviews?email=${user?.email}`)
-        .then(Response => Response.json())
-        .then(data => setReviewes(data))
-    },[user?.email])
+        fetch(`http://localhost:5000/allReviews?email=${user?.email}`, {
+          headers: {
+            authorization: `Bearer ${localStorage.getItem('food-token')}`
+          }
+        })
+        .then(Response =>  {
+          if(Response.status === 401 || Response.status === 403){
+           return logOut()
+          }
+        return  Response.json()
+        })
+        .then(data => {
+        
+         setReviewes(data)
+         
+        })
+    },[user?.email, logOut])
     const handleDelete = id =>{
         const proceed = window.confirm('Are You Sure To Delete Your Review')
         if(proceed){
@@ -35,7 +48,7 @@ const Review = () => {
     return (
         <div>
           {
-            reviewes.length === 0 ?  <h2 className='text-3xl m-10 text-center'>You have no review</h2>
+            reviewes?.length === 0 ?  <h2 className='text-3xl m-10 text-center'>You have no review</h2>
              :
              <div className="overflow-x-auto w-full">
              <table className="table w-full">

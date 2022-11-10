@@ -29,6 +29,7 @@ const AuthProvider = ({children}) => {
     }
 
     const logOut = () => {
+        localStorage.removeItem('food-token')
         setLoading(true)
         return signOut(auth)
     }

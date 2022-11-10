@@ -11,18 +11,19 @@ const DetailsCardAllReview = ({ foodDetails }) => {
   console.log(user.displayName);
 
   useEffect(() => {
-    fetch(`http://localhost:5000/foodReviews?service=${_id}`)
+    fetch(`http://localhost:5000/foodReviews?service=${_id}`, {
+      headers: {
+        authorization: `Bearer ${localStorage.getItem('food-token')}`
+      }
+    })
       .then(Response => Response.json())
-      .then(data => {
-        setReviews(data)
-
-      })
+      .then(data => setReviews(data))
   }, [_id])
 
   return (
     <div>
       {
-        reviews.length === 0 ? <h2 className='text-3xl m-10 text-center'>This food have no review</h2> :
+        reviews?.length === 0 ? <h2 className='text-3xl m-10 text-center'>This food have no review</h2> :
           <div className="overflow-x-auto w-full">
             <table className="table w-full">
               <thead>
