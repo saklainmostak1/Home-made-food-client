@@ -37,6 +37,7 @@ const bannerData = [
 const Banner = () => {
     return (
         <div className="carousel py-10">
+            
             {
                 bannerData.map(bd => <BannerDetails
                 key={bd.id}

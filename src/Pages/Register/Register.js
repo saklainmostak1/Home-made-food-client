@@ -3,13 +3,13 @@ import { Link } from 'react-router-dom';
 import { AuthContext } from '../Shared/AuthProvider/AuthProvider';
 import toast from 'react-hot-toast';
 import { FaGoogle } from 'react-icons/fa';
-import {  GoogleAuthProvider } from 'firebase/auth';
 import useTitle from '../../hooks/useTitle';
+import { GoogleAuthProvider } from 'firebase/auth';
 
 
 
 const Register = () => {
-    const {createUser, upadateUserProfile, googleSingIn} = useContext(AuthContext)
+    const {createUser, upadateUserProfile, providerLogin} = useContext(AuthContext)
     useTitle('Register')
     const googleProvider = new GoogleAuthProvider()
     const handleSubmit = event =>{
@@ -48,18 +48,15 @@ const Register = () => {
             console.error(error)
         })
     }
-    const handleGoogleLogIn = () => {
-        return googleSingIn(googleProvider)
-            .then(result => {
-                const user = result.user
-                toast.success('Successfully Login!');
-                console.log(user)
-                
-            })
-            .catch(error => {
-                console.error(error)
-            })
+    const handleGoogleSignIn = () =>{
+      return providerLogin(googleProvider)
+      .then(result => {
+        const user = result.user
+        console.log(user);
+      })
+      .catch(error => console.error(error))
     }
+   
     return (
         <div>
              <div className="hero min-h-screen bg-base-200">
@@ -97,7 +94,8 @@ const Register = () => {
           </label>
       <button className="btn btn-primary">Register</button>
         </div>
-        <button onClick={handleGoogleLogIn} className="btn btn-outline btn-info"><FaGoogle></FaGoogle> google Register</button>
+        <button onClick={handleGoogleSignIn} className="btn btn-outline btn-info"><FaGoogle></FaGoogle> google Register</button>
+        <button onClick={handleGoogleSignIn} className="btn btn-outline btn-info"><FaGoogle></FaGoogle> google Register</button>
       </form>
     </div>
   </div>

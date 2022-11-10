@@ -10,12 +10,10 @@ const AuthProvider = ({children}) => {
     const [user, setUser] = useState(null)
     const [loading , setLoading] = useState(true)
 
-  
-    const googleSingIn = (provider) => {
-        setLoading(true)
+
+     const providerLogin = (provider) =>{
         return signInWithPopup(auth, provider)
-    }
-   
+     }
     const createUser = (email, password) => {
         setLoading(true)
         return createUserWithEmailAndPassword(auth, email, password)
@@ -29,7 +27,6 @@ const AuthProvider = ({children}) => {
     }
 
     const logOut = () => {
-        localStorage.removeItem('food-token')
         setLoading(true)
         return signOut(auth)
     }
@@ -40,12 +37,14 @@ const AuthProvider = ({children}) => {
             setUser(currentUser)
             setLoading(false)
         })
-        return () => unsubscribe()
+        return () =>{ 
+            unsubscribe()
+        }
     }, [])
     const authInfo = {
         user,
         loading,
-        googleSingIn,
+        providerLogin,
         createUser,
         logIn,
         upadateUserProfile,

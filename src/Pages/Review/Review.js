@@ -11,22 +11,9 @@ const Review = () => {
     console.log(reviewes);
 
     useEffect(() =>{
-        fetch(`http://localhost:5000/allReviews?email=${user?.email}`, {
-          headers: {
-            authorization: `Bearer ${localStorage.getItem('food-token')}`
-          }
-        })
-        .then(Response =>  {
-          if(Response.status === 401 || Response.status === 403){
-           return logOut()
-          }
-        return  Response.json()
-        })
-        .then(data => {
-        
-         setReviewes(data)
-         
-        })
+        fetch(`http://localhost:5000/allReviews?email=${user?.email}`)
+        .then(Response => Response.json())
+        .then(data =>  setReviewes(data))
     },[user?.email, logOut])
     const handleDelete = id =>{
         const proceed = window.confirm('Are You Sure To Delete Your Review')
@@ -68,7 +55,7 @@ const Review = () => {
                </thead>
                <tbody>
                        {
-                          reviewes.map(reviewe => <ReviewTable
+                         reviewes.map(reviewe => <ReviewTable
                           key={reviewe._id}
                           reviewe={reviewe}
                           handleDelete={handleDelete}
